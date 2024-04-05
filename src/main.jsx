@@ -12,6 +12,7 @@ import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import SingleSlide from './components/Home/SingleSlide.jsx';
 import TravelBooking from './components/Home/TravelBooking.jsx';
+import Hotel from './components/Home/Hotel/Hotel.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path:'/TravelBooking/:id',
         element:<TravelBooking></TravelBooking>,
+        loader:() => fetch('/slide.json')
+      },
+      {
+        path:'/Hotel/:id',
+        element:<Hotel></Hotel>,
         loader:() => fetch('/slide.json')
       }
     ]

@@ -5,6 +5,7 @@ import background from '../../assets/Rectangle 1.png'
 import { useLoaderData } from 'react-router-dom';
 import Calendar from './calender/Calender';
 import { FaCalendar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const TravelBooking = () => {
     const { id, description } = useParams();
@@ -68,7 +69,7 @@ const TravelBooking = () => {
                     </div>
 
                     <div>
-                         <button className='btn btn-warning w-full'>Confirm Booking</button>
+                         <Link to={`/Hotel/${id}`}><button  className='btn btn-warning w-full'>Confirm Booking</button></Link>
                     </div>
                 </div>
             </div>

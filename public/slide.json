@@ -3,7 +3,8 @@
       "title": "The Secret Garden",
       "id": "001",
       "description": "A timeless classic about a young girl who discovers a hidden garden on her uncle's estate, unlocking its mysteries and finding solace within its walls.",
-      "hotel_name": "Garden Retreat Inn"
+      "hotel_name": "Garden Retreat Inn",
+      "location":"39 Cronall Street"
     },
     {
       "title": "Into the Wild",
