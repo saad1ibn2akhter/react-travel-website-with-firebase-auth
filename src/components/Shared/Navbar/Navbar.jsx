@@ -7,7 +7,7 @@ const Navbar = () => {
     const links = <>
         <label className='flex space-x-2 items-center -translate-x-11'>
             <FaSearch className=' translate-x-8'></FaSearch>
-            <input type="text " placeholder='Search Destination...' className='px-10 mr-8 h-[35px] w-[325px]' name="" id="" />
+            <input type="text " placeholder='Search Destination...' className='px-10 mr-8 h-[35px] w-[325px] rounded-xl text-[16px]' name="" id="" />
         </label>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/n'>News</NavLink></li>
