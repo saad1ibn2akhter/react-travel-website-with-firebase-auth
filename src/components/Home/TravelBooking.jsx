@@ -6,41 +6,44 @@ import { useLoaderData } from 'react-router-dom';
 import Calendar from './calender/Calender';
 import { FaCalendar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { ReactTyped } from "react-typed";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const TravelBooking = () => {
-    const { id, description } = useParams();
+    const { id } = useParams();
     const [showCalender, setShowCalender] = useState(false);
 
-    const handleCalender =() =>{
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate , setEndDate]  = useState(new Date());
+
+    const handleCalender = () => {
         setShowCalender(!showCalender);
     }
 
-    // const [info, setInfo] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('https://raw.githubusercontent.com/saad1ibn2akhter/Fake-Slide-Data-for-Travel-Web/main/fakeInfo')
-    //         .then(res => res.json())
-    //         .then(data => setInfo(data))
-    // }, [])
-
     const info = useLoaderData();
-
 
     const slideWant = info.find(x => x.id === id)
     console.log('important slide : ', slideWant)
 
+    const { title , description} = slideWant;
+
     console.log('Information form useeffect', info)
-    console.log('from the travel booking  : ', id, description);
+    console.log('from the travel booking  : ', id);
     return (
-        <div className="w-full min-h-screen bg-cover bg-bottom bg-blend-saturation " style={{ backgroundImage: `url(${background})`, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-            <div className='flex max-w-6xl mx-auto items-center justify-center py-16'>
+        <div className="w-full min-h-screen bg-cover bg-bottom bg-blend-saturation " style={{ backgroundImage: `url(${background})`, backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
+            <div className='flex max-w-6xl mx-auto items-start justify-center py-24'>
                 <div className='max-w-6xl mx-auto'>
-                    <h1>Details are shown here</h1>
-                    <h1>{id}</h1>
-                    <p>{slideWant.description}</p>
+                    <h1 className='text-[48px] font-extrabold shadow-2xl'>
+                        <ReactTyped strings={[`${title}`]} typeSpeed={40} />
+                    </h1>
+                    
+                    <p className='max-w-[80%] text-[18px] text-gray-400 shadow-white'>
+                    <ReactTyped strings={[`${description}`]} typeSpeed={4} />
+                    </p>
                 </div>
 
-                <div className='p-10 bg-white text-gray-800 min-w-[400px] max-w-[600px] '>
+                <div className='p-14 bg-white text-gray-800 min-w-[500px] max-w-[700px] '>
                     <div>
                         <label htmlFor="">
                             <h1>Origin</h1>
@@ -54,22 +57,45 @@ const TravelBooking = () => {
                         </label>
                     </div>
 
-                    <div>
-                        <label htmlFor="">
+                    <div className='flex space-x-2'>
+                        <label htmlFor="" className='w-1/2'>
                             <h1>To</h1>
-                            <label htmlFor="">
-                            <input type="text" className='bg-gray-100 w-1/2 p-2' onFocus={handleCalender} name="" id="" />
-                            {
-                                showCalender && <Calendar></Calendar>
-                            }
-                            
-                            </label>
+                            <div className='w-full'>
+                                <input
+                                    type="text"
+                                    className='bg-gray-100 w-[150px] p-2'
+                                    placeholder={startDate ? startDate.toLocaleDateString('en-GB') : "Select Date"} 
+                                    onClick={handleCalender}
+                                />
+                                {showCalender && (
+                                    <DatePicker
+                                        selected={startDate}
+                                        onChange={(date) => setStartDate(date)}
+                                    />
+                                )}
+                            </div>
                         </label>
-                        <label htmlFor=""></label>
+                        <label htmlFor="" className='w-1/2'>
+                            <h1>To</h1>
+                            <div className='w-full'> 
+                                <input
+                                    type="text"
+                                    className='bg-gray-100 p-2 w-[150px]'
+                                    placeholder={endDate ? endDate.toLocaleDateString('en-GB') : "Select Date"} 
+                                    onClick={handleCalender}
+                                />
+                                {showCalender && (
+                                    <DatePicker
+                                        selected={endDate}
+                                        onChange={(date) => setEndDate(date)}
+                                    />
+                                )}
+                            </div>
+                        </label>
                     </div>
 
                     <div>
-                         <Link to={`/Hotel/${id}`}><button  className='btn btn-warning w-full'>Confirm Booking</button></Link>
+                        <Link to={`/Hotel/${id}`}><button className='btn btn-warning w-full'>Confirm Booking</button></Link>
                     </div>
                 </div>
             </div>
