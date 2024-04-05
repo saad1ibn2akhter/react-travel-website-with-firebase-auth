@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle ,FaFacebook } from 'react-icons/fa';
+import { AuthContext } from '../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleRegister =(e) =>{
+        e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const email = form.get('email');
+        const password = form.get('password');
+
+        console.log(name,photo,email,password);
+
+        createUser(email,password)
+        .then(result => {
+            console.log('user created succesfully !' , result.user)
+            toast.success("User Created Succesfully!")
+        })
+        .catch(error => {
+            console.error(error);
+            toast.warn("Something went Wrong 404!")
+        })
+
+
+
+
+    }
     return (
         <div className='text-gray-800'>
             {/* <Navbar></Navbar> */}
@@ -11,7 +41,7 @@ const Register = () => {
                 <div className="hero-content flex-col ">
 
                     <div className="card shrink-0  w-[523px] shadow-2xl bg-base-100 p-6">
-                        <form className="card-body">
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="text-center text-sm ">
                                 <h1 className="text-[36px] font-bold">Register an account</h1>
                             </div> <br /><hr />
@@ -77,6 +107,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
