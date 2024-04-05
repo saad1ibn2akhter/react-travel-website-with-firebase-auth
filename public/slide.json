@@ -1,28 +1,32 @@
 [
     {
-      "title": "The Secret Garden",
+      "title": "Cox's Bazar",
       "id": "001",
-      "description": "A timeless classic about a young girl who discovers a hidden garden on her uncle's estate, unlocking its mysteries and finding solace within its walls.",
+      "description": "Cox's Bazar, in southeastern Bangladesh, boasts the world's longest natural sandy sea beach, stretching over 120 kilometers. It offers picturesque views, water sports, vibrant culture, and delicious seafood cuisine for unforgettable experiences.",
       "hotel_name": "Garden Retreat Inn",
-      "location":"39 Cronall Street"
+      "location":"39 Cronall Street",
+      "image":"https://img.freepik.com/free-photo/long-shot-woman-spending-day-alone-beach_23-2150166471.jpg?w=360"
     },
     {
-      "title": "Into the Wild",
+      "title": "Sreemangal",
       "id": "002",
-      "description": "Follow the journey of Christopher McCandless as he abandons his conventional life and ventures into the Alaskan wilderness, seeking truth and self-discovery.",
-      "hotel_name": "Wilderness Lodge"
+      "description": "Sreemangal, nestled in Bangladesh's northeast, invites tourists with its lush tea gardens, vibrant wildlife sanctuaries, and serene landscapes. Experience a tranquil retreat amidst verdant hills and the aroma of freshly brewed tea.",
+      "hotel_name": "Wilderness Lodge",
+      "image":"https://img.freepik.com/free-photo/sacred-tree-with-big-roots_1385-765.jpg?w=360"
     },
     {
-      "title": "The Great Gatsby",
+      "title": "Sundarbans",
       "id": "003",
-      "description": "Set in the roaring twenties, this novel explores the decadence and disillusionment of the American Dream through the eyes of Jay Gatsby and narrator Nick Carraway.",
-      "hotel_name": "Gatsby Mansion Hotel"
+      "description": "Sundarbans, a UNESCO World Heritage Site, is a captivating mangrove forest in Bangladesh. Explore its diverse ecosystem, spot elusive Bengal tigers, and cruise through winding waterways for an unforgettable adventure in nature's embrace.",
+      "hotel_name": "Gatsby Mansion Hotel",
+      "image":"https://img.freepik.com/free-photo/tiger-sleeping-grass-zoo_181624-46202.jpg?w=360"
     },
     {
-      "title": "To Kill a Mockingbird",
+      "title": "Sajek Valley",
       "id": "004",
-      "description": "Harper Lee's masterpiece delves into themes of racial injustice and moral growth in the deep South, as seen through the eyes of young Scout Finch.",
-      "hotel_name": "Finch's Rest Hotel"
+      "description": " Sajek Valley, nestled in the hills of Bangladesh's Rangamati district, offers breathtaking vistas, indigenous culture, and serene tranquility. Explore lush green landscapes, cascading waterfalls, and immerse yourself in the warmth of local hospitality.",
+      "hotel_name": "Finch's Rest Hotel",
+      "image":"https://img.freepik.com/free-photo/adventure-tranquil-water-rowing-through-fog-generated-by-ai_188544-11212.jpg?w=826"
     }
   ]
   

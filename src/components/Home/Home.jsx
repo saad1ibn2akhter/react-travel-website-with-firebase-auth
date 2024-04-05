@@ -18,7 +18,7 @@ const Home = () => {
     const slides = useLoaderData();
     console.log('from loader :' , slides);
     return (
-        <div className="w-full min-h-screen bg-cover bg-bottom bg-blend-saturation font-poppins" style={{ backgroundImage: `url(${background})`, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <div className="w-full min-h-screen bg-cover bg-bottom bg-blend-saturation font-poppins" style={{ backgroundImage: `url(${background})`, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
             {/* <h1>this is home</h1> */}
             <Swiper
                 className='bg-transparent max-w-6xl mx-auto '
