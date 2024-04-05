@@ -1,5 +1,5 @@
 // import { data } from 'autoprefixer';
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import background from '../../assets/Rectangle 1.png'
 import { useLoaderData } from 'react-router-dom';
@@ -9,14 +9,15 @@ import { Link } from 'react-router-dom';
 import { ReactTyped } from "react-typed";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import Home from './Home';
+// import { AuthLogin } from '../Login/Login';
 
-// export const TourContext = createContext(null); // ####
 
 const TravelBooking = ({children}) => {
+    
+
     const { id } = useParams();
     const [showCalender, setShowCalender] = useState(false);
-    // const [originData , setOriginData] = useState(null);
+    
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate , setEndDate]  = useState(new Date());

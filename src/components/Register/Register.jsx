@@ -27,6 +27,7 @@ const Register = () => {
             updateProfile(auth.currentUser,{
                 displayName:`${name}`,
                 photoURL:`${photo}`,
+                school:"Manchester Academy"
             })
             toast.success("User Created Succesfully!")
         })

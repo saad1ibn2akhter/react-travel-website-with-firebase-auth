@@ -53,7 +53,7 @@ const Navbar = () => {
 
                     <div>
                         {
-                            user && <img className='w-[50px] h-[50px] rounded-full' src={user.photoURL} alt="" />
+                            user && <Link to='/Profile'><img className='w-[50px] h-[50px] rounded-full' src={user.photoURL} alt="" /></Link>
                         }
                     </div>
 
