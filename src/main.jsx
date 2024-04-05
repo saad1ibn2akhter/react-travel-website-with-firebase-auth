@@ -9,6 +9,9 @@ import {
 import Root from './components/Root/Root.jsx';
 import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login.jsx';
+import Register from './components/Register/Register.jsx';
+import SingleSlide from './components/Home/SingleSlide.jsx';
+import TravelBooking from './components/Home/TravelBooking.jsx';
 
 
 const router = createBrowserRouter([
@@ -18,11 +21,25 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader:() => fetch('/slide.json')
       },
       {
         path:'/Login',
         element:<Login></Login>
+      },
+      {
+        path:'/Register',
+        element:<Register></Register>
+      },
+      // {
+      //   path:'/SingleSlide',
+      //   element:<SingleSlide></SingleSlide>
+      // }
+      {
+        path:'/TravelBooking/:id',
+        element:<TravelBooking></TravelBooking>,
+        loader:() => fetch('/slide.json')
       }
     ]
   },

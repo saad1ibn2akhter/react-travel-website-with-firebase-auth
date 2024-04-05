@@ -1,0 +1,27 @@
+[
+    {
+      "title": "The Secret Garden",
+      "id": "001",
+      "description": "A timeless classic about a young girl who discovers a hidden garden on her uncle's estate, unlocking its mysteries and finding solace within its walls.",
+      "hotel_name": "Garden Retreat Inn"
+    },
+    {
+      "title": "Into the Wild",
+      "id": "002",
+      "description": "Follow the journey of Christopher McCandless as he abandons his conventional life and ventures into the Alaskan wilderness, seeking truth and self-discovery.",
+      "hotel_name": "Wilderness Lodge"
+    },
+    {
+      "title": "The Great Gatsby",
+      "id": "003",
+      "description": "Set in the roaring twenties, this novel explores the decadence and disillusionment of the American Dream through the eyes of Jay Gatsby and narrator Nick Carraway.",
+      "hotel_name": "Gatsby Mansion Hotel"
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "id": "004",
+      "description": "Harper Lee's masterpiece delves into themes of racial injustice and moral growth in the deep South, as seen through the eyes of young Scout Finch.",
+      "hotel_name": "Finch's Rest Hotel"
+    }
+  ]
+  
