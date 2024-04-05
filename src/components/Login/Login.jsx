@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
-import { Link } from 'react-router-dom';
-// import google '../../assets/'
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../providers/AuthProvider';
 import auth from '../firebase/firebase.config';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const {generalLogin , googleLogin} = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleLogin = e =>{
 
         e.preventDefault();
@@ -19,7 +19,7 @@ const Login = () => {
         generalLogin(email,password)
         .then(res => {
             console.log("logged in succesfully with email an password")
-
+            navigate('/')
         })
         .catch(error => console.error(error))
     }
@@ -28,6 +28,7 @@ const Login = () => {
         googleLogin()
         .then(res => {
             console.log('logged in with google');
+            navigate('/')
         })
         .catch(error => console.error(error))
     }

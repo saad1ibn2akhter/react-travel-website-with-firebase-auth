@@ -16,8 +16,7 @@ import { Link } from 'react-router-dom';
 const SingleSlide = ({ slide }) => {
     const { title, description, id , image } = slide;
     console.log('from slide =>', title , image)
-    const pic = `${image}`
-    console.log(pic);
+   
     
     return (
         <div className='bg-red'>
@@ -34,8 +33,8 @@ const SingleSlide = ({ slide }) => {
                         </Link>
 
                     </div>
-                    <div>
-                        <img src={pic} className='max-h-[700px] min-w-[300px] min-h-[500px] border shadow-2xl max-w-[500px]' alt="" />
+                    <div className=''>
+                        <img src={image} className='max-h-[700px] min-w-[300px] min-h-[500px] border shadow-2xl max-w-[500px] rounded-2xl border-none ' alt="" />
                     </div>
                 </div>
             </SwiperSlide>

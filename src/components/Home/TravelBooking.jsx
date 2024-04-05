@@ -1,5 +1,5 @@
 // import { data } from 'autoprefixer';
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import background from '../../assets/Rectangle 1.png'
 import { useLoaderData } from 'react-router-dom';
@@ -9,10 +9,14 @@ import { Link } from 'react-router-dom';
 import { ReactTyped } from "react-typed";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+// import Home from './Home';
 
-const TravelBooking = () => {
+// export const TourContext = createContext(null); // ####
+
+const TravelBooking = ({children}) => {
     const { id } = useParams();
     const [showCalender, setShowCalender] = useState(false);
+    // const [originData , setOriginData] = useState(null);
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate , setEndDate]  = useState(new Date());
@@ -30,7 +34,10 @@ const TravelBooking = () => {
 
     console.log('Information form useeffect', info)
     console.log('from the travel booking  : ', id);
+
+   
     return (
+        <>
         <div className="w-full min-h-screen bg-cover bg-bottom bg-blend-saturation " style={{ backgroundImage: `url(${background})`, backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
             <div className='flex max-w-6xl mx-auto items-start justify-center py-24'>
                 <div className='max-w-6xl mx-auto'>
@@ -44,16 +51,17 @@ const TravelBooking = () => {
                 </div>
 
                 <div className='p-14 bg-white text-gray-800 min-w-[500px] max-w-[700px] '>
+                    <form >   
                     <div>
                         <label htmlFor="">
                             <h1>Origin</h1>
-                            <input type="text" className='bg-gray-100 w-full p-2' placeholder='Dhaka' name="" id="" />
+                            <input type="text" className='bg-gray-100 w-full p-2' name='origin' placeholder='Dhaka' id="" />
                         </label>
                     </div>
                     <div>
                         <label htmlFor="">
                             <h1>Origin</h1>
-                            <input type="text" className='bg-gray-100 w-full p-2' placeholder='Dhaka' name="" id="" />
+                            <input type="text" className='bg-gray-100 w-full p-2' placeholder='Dhaka'  id="" />
                         </label>
                     </div>
 
@@ -95,11 +103,13 @@ const TravelBooking = () => {
                     </div>
 
                     <div>
-                        <Link to={`/Hotel/${id}`}><button className='btn btn-warning w-full'>Confirm Booking</button></Link>
+                        <Link  to={`/Hotel/${id}`}><button className='btn btn-warning w-full'>Confirm Booking</button></Link>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

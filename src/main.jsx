@@ -14,6 +14,7 @@ import SingleSlide from './components/Home/SingleSlide.jsx';
 import TravelBooking from './components/Home/TravelBooking.jsx';
 import Hotel from './components/Home/Hotel/Hotel.jsx';
 import AuthProvider from './components/providers/AuthProvider.jsx';
+import PrivateRoute from './components/routes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       // }
       {
         path:'/TravelBooking/:id',
-        element:<TravelBooking></TravelBooking>,
+        element:<PrivateRoute><TravelBooking></TravelBooking></PrivateRoute>,
         loader:() => fetch('/slide.json')
       },
       {
