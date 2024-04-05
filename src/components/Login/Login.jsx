@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 // import google '../../assets/'
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../providers/AuthProvider';
+import auth from '../firebase/firebase.config';
 const Login = () => {
+    const {generalLogin , googleLogin} = useContext(AuthContext);
+    const handleLogin = e =>{
+
+        e.preventDefault();
+        const form  = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
+
+        console.log(email,password);
+
+        generalLogin(email,password)
+        .then(res => {
+            console.log("logged in succesfully with email an password")
+
+        })
+        .catch(error => console.error(error))
+    }
+
+    const handleGoogle = () =>{
+        googleLogin()
+        .then(res => {
+            console.log('logged in with google');
+        })
+        .catch(error => console.error(error))
+    }
     return (
         <div className='text-black'>
             {/* <Navbar></Navbar> */}
@@ -11,7 +38,7 @@ const Login = () => {
                 <div className="hero-content flex-col ">
 
                     <div className="card shrink-0  w-[523px] shadow-2xl bg-base-100 p-6">
-                        <form className="card-body">
+                        <form onSubmit={handleLogin} className="card-body">
                             <div className="text-center text-sm ">
                                 <h1 className="text-[36px] font-bold">Login to your account</h1>
                             </div> <br /><hr />
@@ -47,7 +74,7 @@ const Login = () => {
                                 <div className="grid h-[2px] flex-grow card bg-base-300 rounded-box place-items-center"></div>
                             </div>
                             <div className='w-full flex space-x-2 mx-auto justify-center'>
-                                <div className='flex border items-center p-3 rounded-xl space-x-3'>
+                                <div onClick={handleGoogle} className='flex border items-center p-3 rounded-xl space-x-3'>
                                     <FaGoogle className='w-[28px] h-[28px]'> </FaGoogle>
                                     <h1>Login with Google</h1>
                                 </div>

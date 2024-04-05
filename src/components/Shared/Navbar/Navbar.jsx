@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+        .then(res => {
+            console.log('user logged out succesfully' , res.user)
+
+        })
+        .catch(error => console.error(error))
+    }
+
     const links = <>
         <label className='flex space-x-2 items-center -translate-x-11'>
             <FaSearch className=' translate-x-8'></FaSearch>
@@ -36,10 +48,25 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <div className="navbar-end">
-                        <Link to='/Login'>
-                        <button className='btn btn-warning'> Login </button>
-                        </Link>
+                   
+                    <div className="navbar-end flex space-x-2">
+
+                    <div>
+                        {
+                            user && <img className='w-[50px] h-[50px] rounded-full' src={user.photoURL} alt="" />
+                        }
+                    </div>
+
+                        <div>
+                        {
+                            user ?
+                                <button onClick={handleLogOut} className='btn btn-warning bg-red-600'> Sign Out </button>
+                                :
+                                <Link to='/Login'>
+                                    <button className='btn btn-warning'> Login </button>
+                                </Link>
+                        }
+                        </div>
                     </div>
                 </div>
             </div>

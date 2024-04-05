@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { FaGoogle ,FaFacebook } from 'react-icons/fa';
 import { AuthContext } from '../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-
+import 'react-toastify/dist/ReactToastify.css';
+import auth from '../firebase/firebase.config';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser , googleLogin} = useContext(AuthContext);
 
     const handleRegister =(e) =>{
         e.preventDefault();
@@ -23,6 +24,10 @@ const Register = () => {
         createUser(email,password)
         .then(result => {
             console.log('user created succesfully !' , result.user)
+            updateProfile(auth.currentUser,{
+                displayName:`${name}`,
+                photoURL:`${photo}`,
+            })
             toast.success("User Created Succesfully!")
         })
         .catch(error => {
@@ -30,9 +35,14 @@ const Register = () => {
             toast.warn("Something went Wrong 404!")
         })
 
+    }
 
-
-
+    const handleGoogle = () =>{
+        googleLogin()
+        .then(res => {
+            console.log('logged in with google');
+        })
+        .catch(error => console.error(error))
     }
     return (
         <div className='text-gray-800'>
@@ -89,7 +99,7 @@ const Register = () => {
                                 <div className="grid h-[2px] flex-grow card bg-base-300 rounded-box place-items-center"></div>
                             </div>
                         <div className='w-full flex space-x-2 mx-auto justify-center'>
-                                <button className='btn'>
+                                <button onClick={handleGoogle} className='btn'>
                                 <div className='flex  items-center  rounded-xl space-x-3'>
                                     <FaGoogle className='w-[28px] h-[28px]'> </FaGoogle>
                                     <h1>Login with Google</h1>
