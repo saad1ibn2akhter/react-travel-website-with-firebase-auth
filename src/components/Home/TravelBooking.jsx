@@ -36,6 +36,25 @@ const TravelBooking = ({children}) => {
     console.log('Information form useeffect', info)
     console.log('from the travel booking  : ', id);
 
+    
+
+    // localStorage integration
+    const handleLocalStorage =() =>{
+        const storedInfo = getStoredJobApplication();
+        if(storedInfo.includes(id)){
+            console.log('already exist ');
+        }
+        else{
+            savedJobApplication(id);
+        }
+        
+    }
+    const setLocalStorage = () =>{
+        localStorage.setItem('tourId' , id);;
+    }
+
+    // localStorage integration
+
    
     return (
         <>
@@ -104,7 +123,7 @@ const TravelBooking = ({children}) => {
                     </div>
 
                     <div>
-                        <Link  to={`/Hotel/${id}`}><button className='btn btn-warning w-full'>Confirm Booking</button></Link>
+                        <Link  to={`/Hotel/${id}`}><button onClick={setLocalStorage} className='btn btn-warning w-full'>Confirm Booking</button></Link>
                     </div>
                     </form>
                 </div>

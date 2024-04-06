@@ -52,7 +52,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/Profile',
-        element:<Profile></Profile>
+        element:<Profile></Profile>,
+        loader: () => fetch('/slide.json')
       }
     ]
   },
