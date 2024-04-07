@@ -16,6 +16,7 @@ import Hotel from './components/Home/Hotel/Hotel.jsx';
 import AuthProvider from './components/providers/AuthProvider.jsx';
 import PrivateRoute from './components/routes/PrivateRoute.jsx';
 import Profile from './components/Profile/Profile.jsx';
+import Coding from './components/coding/Coding.jsx';
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path:'/Profile',
         element:<Profile></Profile>,
         loader: () => fetch('/slide.json')
+      },
+      {
+        path:'/Coding',
+        element:<Coding></Coding>
       }
     ]
   },
